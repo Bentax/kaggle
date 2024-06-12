@@ -84,6 +84,7 @@ def replace_matches_in_column(df, column, string_to_match, min_ratio = 47):
 
 # use the function we just wrote to replace close matches to "south korea" with "south korea"
 replace_matches_in_column(df=professors, column='Country', string_to_match="south korea")
+# replace_matches_in_column(df=professors,column='Country',string_to_match='usa', min_ratio=70)
 
 # All done!
 
