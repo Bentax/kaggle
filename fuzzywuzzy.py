@@ -40,7 +40,7 @@ array(['australia', 'austria', 'canada', 'china', 'finland', 'france',
        'urbana', 'usa', 'usofa'], dtype=object)
 '''
 
-#### РАССТОЯНИЕ ВИТГЕНШТЕЙНА
+#### РАССТОЯНИЕ ЛЕВЕНШТЕЙНА
 
 # get the top 10 closest matches to "south korea"
 matches = fuzzywuzzy.process.extract("south korea", countries, limit=10, scorer=fuzzywuzzy.fuzz.token_sort_ratio)
