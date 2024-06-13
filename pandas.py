@@ -96,3 +96,8 @@ Name: index_backwards, Length: 129971, dtype: int64
 ### I'm an economical wine buyer. Which wine is the "best bargain"? Create a variable bargain_wine with the title of the wine with the highest points-to-price ratio in the dataset.
 bargain_idx = (reviews.points / reviews.price).idxmax()
 bargain_wine = reviews.loc[bargain_idx, 'title']
+
+### Create a Series descriptor_counts counting how many times each of these two words appears in the description column in the dataset. (For simplicity, let's ignore the capitalized versions of these words.)
+n_trop = reviews.description.map(lambda desc: "tropical" in desc).sum()
+n_fruity = reviews.description.map(lambda desc: "fruity" in desc).sum()
+descriptor_counts = pd.Series([n_trop, n_fruity], index=['tropical', 'fruity'])
