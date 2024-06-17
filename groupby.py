@@ -121,3 +121,31 @@ country	province	len
 419	Uruguay	Canelones	43
 425 rows × 3 columns
 '''
+
+# What are the minimum and maximum prices for each variety of wine? Create a DataFrame whose index is the variety category from the dataset and whose values are the min and max values thereof.
+price_extremes = reviews.groupby(['variety']).price.agg([min,max])
+'''
+              min   max
+variety                
+Abouriou     15.0  75.0
+Agiorgitiko  10.0  66.0
+...           ...   ...
+Çalkarası    19.0  19.0
+Žilavka      15.0  15.0
+[707 rows x 2 columns]
+'''
+
+# What are the most expensive wine varieties? Create a variable sorted_varieties containing a copy of the dataframe from the previous question where varieties are sorted in descending order based on minimum price, then on maximum price (to break ties).
+sorted_varieties = price_extremes.sort_values(by=['min','max'],ascending=False)
+'''
+             min    max
+variety                
+Ramisco    495.0  495.0
+Terrantez  236.0  236.0
+...          ...    ...
+Vital        NaN    NaN
+Zelen        NaN    NaN
+[707 rows x 2 columns]
+'''
+
+# Create a Series whose index is reviewers and whose values is the average review score given out by that reviewer. Hint: you will need the taster_name and points columns.
