@@ -170,4 +170,13 @@ Name: points, Length: 8, dtype: float64
 '''
 
 # What combination of countries and varieties are most common? Create a Series whose index is a MultiIndexof {country, variety} pairs. For example, a pinot noir produced in the US should map to {"US", "Pinot Noir"}. Sort the values in the Series in descending order based on wine count.
-
+country_variety_counts = reviews.groupby(['country','variety']).size().sort_values(ascending=False)
+'''
+country  variety           
+US       Pinot Noir            9885
+         Cabernet Sauvignon    7315
+                               ... 
+Mexico   Rosado                   1
+Uruguay  White Blend              1
+Length: 1612, dtype: int64
+'''
