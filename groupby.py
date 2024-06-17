@@ -149,3 +149,25 @@ Zelen        NaN    NaN
 '''
 
 # Create a Series whose index is reviewers and whose values is the average review score given out by that reviewer. Hint: you will need the taster_name and points columns.
+reviewer_mean_ratings = reviews.groupby('taster_name').points.mean()
+'''
+taster_name
+Alexander Peartree    85.855422
+Anna Lee C. Iijima    88.415629
+                        ...    
+Susan Kostrzewa       86.609217
+Virginie Boone        89.213379
+Name: points, Length: 19, dtype: float64
+'''
+reviewer_mean_ratings.describe()
+'''
+count    19.000000
+mean     88.233026
+           ...    
+75%      88.975256
+max      90.562551
+Name: points, Length: 8, dtype: float64
+'''
+
+# What combination of countries and varieties are most common? Create a Series whose index is a MultiIndexof {country, variety} pairs. For example, a pinot noir produced in the US should map to {"US", "Pinot Noir"}. Sort the values in the Series in descending order based on wine count.
+
