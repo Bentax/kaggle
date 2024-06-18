@@ -51,3 +51,11 @@ reviews.taster_twitter_handle.replace("@kerinokeefe", "@kerino")
 129970    @vossroger
 Name: taster_twitter_handle, Length: 129971, dtype: object
 '''
+
+# Sometimes the price column is null. How many reviews in the dataset are missing a price?
+missing_price_reviews = reviews[reviews.price.isnull()]
+n_missing_prices = len(missing_price_reviews)
+# Cute alternative solution: if we sum a boolean series, True is treated as 1 and False as 0
+n_missing_prices = reviews.price.isnull().sum()
+# or equivalently:
+n_missing_prices = pd.isnull(reviews.price).sum()
