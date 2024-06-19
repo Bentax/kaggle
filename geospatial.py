@@ -66,3 +66,28 @@ wild_lands.plot(color='lightgreen', ax=ax)
 campsites.plot(color='maroon', markersize=2, ax=ax)
 trails.plot(color='black', markersize=1, ax=ax)
 
+#########################################
+#########################################
+# Run the next code cell without changes to load a GeoDataFrame world containing country boundaries.
+# This dataset is provided in GeoPandas
+world_filepath = gpd.datasets.get_path('naturalearth_lowres')
+world = gpd.read_file(world_filepath)
+world.head()
+'''
+
+# Your code here
+ax = world.plot(figsize=(10,10), color='none', edgecolor='gainsboro', zorder=3)
+
+# Add wild lands, campsites, and foot trails to the base map
+world_loans.plot(color='lightgreen', ax=ax)
+########################################
+########################################
+	pop_est	continent	name	iso_a3	gdp_md_est	geometry
+0	889953.0	Oceania	Fiji	FJI	5496	MULTIPOLYGON (((180.00000 -16.06713, 180.00000...
+1	58005463.0	Africa	Tanzania	TZA	63177	POLYGON ((33.90371 -0.95000, 34.07262 -1.05982...
+2	603253.0	Africa	W. Sahara	ESH	907	POLYGON ((-8.66559 27.65643, -8.66512 27.58948...
+3	37589262.0	North America	Canada	CAN	1736425	MULTIPOLYGON (((-122.84000 49.00000, -122.9742...
+4	328239523.0	North America	United States of America	USA	21433226	MULTIPOLYGON (((-122.84000 49.00000, -120.0000...
+'''
+
+
