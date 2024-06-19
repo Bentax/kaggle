@@ -90,4 +90,26 @@ world_loans.plot(color='lightgreen', ax=ax)
 4	328239523.0	North America	United States of America	USA	21433226	MULTIPOLYGON (((-122.84000 49.00000, -120.0000...
 '''
 
+#### Next, you'll focus on loans that are based in the Philippines. 
+#### Use the next code cell to create a GeoDataFrame PHL_loans which contains all rows from world_loans with loans that are based in the Philippines.add Codeadd Markdown
+PHL_loans = world_loans.loc[world_loans.country == 'Philippines'].copy()
 
+#### Run the next code cell without changes to load a GeoDataFrame PHL containing boundaries for all islands in the Philippines.
+# Load a KML file containing island boundaries
+gpd.io.file.fiona.drvsupport.supported_drivers['KML'] = 'rw'
+PHL = gpd.read_file("../input/geospatial-learn-course-data/Philippines_AL258.kml", driver='KML')
+PHL.head()
+'''
+	Name	Description	geometry
+0	Autonomous Region in Muslim Mindanao		MULTIPOLYGON (((119.46690 4.58718, 119.46653 4...
+1	Bicol Region		MULTIPOLYGON (((124.04577 11.57862, 124.04594 ...
+2	Cagayan Valley		MULTIPOLYGON (((122.51581 17.04436, 122.51568 ...
+3	Calabarzon		MULTIPOLYGON (((120.49202 14.05403, 120.49201 ...
+4	Caraga		MULTIPOLYGON (((126.45401 8.24400, 126.45407 8...
+'''
+
+################ Use the PHL and PHL_loans GeoDataFrames to visualize loans in the Philippines.
+# Your code here
+ax = PHL.plot(figsize=(10,10), color='none', edgecolor='gainsboro', zorder=3)
+PHL_loans.plot(color='lightgreen', ax=ax)
+################
