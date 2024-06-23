@@ -35,6 +35,11 @@ print(after.decode("ascii"))
 # try to read in a file not in UTF-8
 kickstarter_2016 = pd.read_csv("../input/kickstarter-projects/ks-projects-201612.csv")
 
+
+##############################
+# pandas problem read csv encoding UTF-8-SIG Error tokenizing data error Buffer overf
+df = pd.read_csv('req01.csv',lineterminator='\r')
+
 # TODO: Load in the DataFrame correctly.
 with open("../input/fatal-police-shootings-in-the-us/PoliceKillingsUS.csv", 'rb') as rawdata:
     result = charset_normalizer.detect(rawdata.read(26000))
@@ -44,3 +49,19 @@ police_killings = pd.read_csv("../input/fatal-police-shootings-in-the-us/PoliceK
 
 # TODO: Save the police killings dataset to CSV
 police_killings.to_csv("my_file.csv")
+
+
+################################
+# Read and store content 
+# of an excel file  
+read_file = pd.read_excel ("Test.xlsx") 
+  
+# Write the dataframe object 
+# into csv file 
+read_file.to_csv ("Test.csv",  
+                  index = None, 
+                  header=True) 
+    
+# read csv file and convert  
+# into a dataframe object 
+df = pd.DataFrame(pd.read_csv("Test.csv"))
